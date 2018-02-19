@@ -3,11 +3,13 @@
 <head>
 	<meta charset="utf-8">
 	<title>Interface</title>
+
 	<script type="text/javascript" src="Scripts/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
 	<script type="text/javascript" src="Scripts/myAjax.js"></script>
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto&amp;subset=cyrillic" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="Styles/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="Styles/myStyles.css">
 
@@ -33,6 +35,8 @@
 	 	<button type="submit" class="myBtn" value="Create">Создать</button>
  	</div>
 	</form>
+
+
 	<div id="mainForm" class="myForm" action="index.php">
 		<div class="tableTitle">Имя базы данных</div>
 		<div id="baseTable"><div id="loader"><img src="Images/loader.svg"></div></div>
