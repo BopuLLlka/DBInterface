@@ -1,0 +1,266 @@
+
+*{
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+
+}
+body{
+	min-width: 500px;
+	padding: 0px;
+	margin: 0px;
+	background-color: #222226;
+
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+ 
+::-webkit-scrollbar-track {
+	background-color:  #333336;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+	background-color:  #444446;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+.myForm
+{
+	color: white;
+	background-color:  #333336;
+	width: 90%;
+	margin:10px auto;
+	border: 1px solid black;
+	overflow: hidden;
+	
+}
+.formTitle{
+	cursor: default;
+	font-size: 20px;
+	background-color: #444446;
+	text-align: center;
+	color: white;
+	padding: 10px;
+	width: 100%;
+	border-bottom: 1px solid black;
+}
+.formContent{
+	width: 100%;
+	padding: 10px;
+}
+.myInput{
+	width: 100%;
+	border-radius: 5px;
+	padding: 5px;
+	background-color: #666666;
+	color: white; 
+	border: 0px solid black;
+}
+
+.myInput:focus {
+	border: 0px solid black;
+	outline: none;
+}
+.myInput::-webkit-input-placeholder{
+ color: rgb(119, 119, 119);
+}
+.myBtn{
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+	border-radius: 10px;
+	background-color: #444446;
+	border: 1px solid black;
+	color: white;
+	padding: 5px 10px 5px 10px;
+	cursor: pointer;
+}
+.myBtn:hover{
+	background-color:  #555556;
+	color: white;
+	border: 1px solid black;
+}
+.errorMessage{
+	min-width: 250px;
+	top:0px;
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: 1000px;
+	height: 100vh; 
+	display: none;
+}
+.errorMessageWindow{
+	overflow: hidden;
+	position: absolute;
+	width: 80%;
+	background-color: #333336;
+	color: white;
+	border: 1px solid black;
+	border-radius: 10px;
+	left:10%;
+	top: 30vh;
+	display: block;
+}
+.errorTitle{
+	font-size: 20px;
+	background-color: #444446;
+	text-align: center;
+	color: white;
+	padding: 10px;
+	width: 100%;
+	border-bottom: 1px solid black;
+}
+.errorContent{
+	padding: 10px;
+}
+#baseTable{
+	display: flex;
+	flex-flow: column;
+	background-color: #333336;
+}
+.baseRow{
+	display: flex;
+	flex-flow: row;
+	border-bottom: 1px solid black;
+	width: 100%;
+	color: white;
+	cursor: pointer;
+	overflow: hidden;
+	padding: 15px 10px 0px 10px;
+}
+.baseRow:hover{
+	background-color: #555556;
+}
+.baseRow:last-child{
+	border: 0px;
+}
+
+.baseRow > p{
+	width: calc(100% - 20px);
+}
+.deleteBtn{
+
+	width: 25px;
+	height: 25px;
+	background-color: 
+	display: none;
+	text-align: center;
+	
+}
+.deleteBtnImg{
+	background-image: url('../Images/deleteBtn.jpg');
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+	border-radius: 360px;
+	margin: 0 auto;
+	text-align: center;
+}
+.deleteBtn:hover{
+	background-color: ;
+}
+.tableTitle{
+	padding: 10px;
+	display: flex;
+	flex-flow: row;
+	background-color: #444446;
+	color: white;
+	font-size: 20px;
+	border-bottom: 1px solid black;
+	cursor: default;
+}
+@keyframes dialogWindowAppear {
+    from   {left:50%;top:50%;width: 0px; height: 0px;}
+    to{left:10%;top:100px;width: 80%; height: 500px;}
+}
+
+#dialogContainer{
+	min-width: 250px;
+	top:0px;
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+#dialogWindow{
+	animation-name: dialogWindowAppear;
+	animation-duration: 0.7s;
+	top: 100px;
+	position: absolute;
+	left: 10%;
+	width: 80%;
+	height: 500px;
+	border: 1px solid black;
+	border-radius: 10px;
+	overflow: hidden;
+	color: white;
+	background-color: #333336;
+}
+#dialogWindowTitle{
+	display: flex;
+	flex-flow: row;
+	width: 100%;
+	height: 50px;
+	padding: 10px;
+	background-color: #444446;
+	border-bottom: 1px solid black;
+}
+#dialogWindowTitleText{
+	box-sizing: border-box;
+	margin: 0px;
+	width: 100%;
+	font-size: 20px;
+	padding-right: 10px;
+	color: white;
+}
+#colseWindowBtn{
+	width: 30px;
+	height: 30px;
+	background-color: red;
+	float: right;
+	border-radius: 300px;
+	cursor: pointer;
+	border: 1px solid black;
+}
+#colseWindowBtn:hover{
+	background-color: darkred;
+}
+#loader{
+	position: relative;
+	width: 200px;
+	height: 200px;
+	top:calc(50% - 100px);
+	left:calc(50% - 100px);;	
+}
+#dialogWindowTableTitle{
+	padding: 5px;
+	font-size: 18px;
+	border-bottom: 1px solid black;
+}
+
+.tableElement{
+	display: flex;
+	flex-flow: row;
+	padding: 5px;
+	font-size: 18px;
+	cursor: pointer;
+}
+.tableElementCheckBox{
+	cursor: pointer;
+	margin:14px 10px 10px 10px;
+}
+.tableElementName{
+	padding: 5px;
+	width: 100%;
+}
+.tableElementName:hover{
+	background-color: #555556;
+}
