@@ -47,7 +47,22 @@
 				<div id="dialogWindowTitleText"></div><div id="colseWindowBtn"></div>
 			</div>
 			<div id="dialogWindowContent">
-				<div id="dialogWindowTableTitle">Таблица</div>
+				<form id="createTableForm">
+					<div class="createTabeTitle">Создать таблицу:</div>
+					<div class="flexRowContainer">
+						<div class="createTableRow">
+							<label class="labelTableName" for="TableName">Имя таблицы:</label>
+							<input class="tableNameInput myInput" type="text" required name="TableName"/>
+						</div>
+						<div class="createTableRow">
+							<label class="labelNumbersOfColumn">Количество столбцов таблицы:</label>
+							<input for="TableNumbersOfColumn" class="numbersOfColumn myInput" type="text" required name="TableNumbersOfColumn"/>
+						</div>
+
+					</div>
+					<input type="submit" name="createTable" class="myBtn createTableBtn" value="Создать">
+				</form>
+				<div class="createTabeTitle">Таблица</div>
 				<div id="dialogWindowTable"></div>
 			</div>
 	</div>
