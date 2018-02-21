@@ -194,7 +194,7 @@ $(document).ready(function ()
 		      }
 		      else{
 		      	$(".errorMessage").css("display","block");
-		       $('#testOut').html("<p>"+"ШОТА СЛУЧИЛОСЬ, СМОТРИ ВНИМАТЕЛЬНЕЕ!"+"</p>");
+		       $('#testOut').html("<p>"+"Что-то случилось, пока я не буду давать точно информации, ибо я не умею..."+"</p>");
 		      }
 		    },
 		    error: function(data)
