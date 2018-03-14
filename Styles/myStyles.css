@@ -149,15 +149,14 @@ body{
 	pointer-events:none;
 }
 .deleteBtn{
-	font-size:27px;
+	font-size:23px;
 	color: white;
 	display: none;
-	
+
 }
 .deleteBtn:hover{
 	color: darkred; 
 }
-
 
 /*Заголовочек таблицы с базами*/
 .tableTitle{
@@ -222,6 +221,7 @@ body{
 }
 /*Крестик для закрытия диалогового окна*/
 .colseWindowBtn{
+
 	font-size: 30px;
 	color: white;
 	cursor: pointer;
@@ -288,9 +288,14 @@ body{
 	display: flex;
 	justify-content: flex-end;
 }
-.createTableBtn{
+#createTableBtn{
 	margin: 10px 20px 10px 10px;
 }
+#createTableOptions{
+	display: none;
+	color: white;
+}
+
 /*Медиа выражения*/
 @media screen and (min-width: 800px)
 {
@@ -305,7 +310,7 @@ body{
 	.createTableRow:first-child{
 		width: 100%;
 	}
-	.createTableBtn{
+	#createTableBtn{
 		margin: 0px 20px 10px 10px;
 	}
 }

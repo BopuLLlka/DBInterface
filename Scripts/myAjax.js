@@ -30,7 +30,6 @@ $(document).ready(function ()
 			if($(event.target).attr('class')=="baseRow" || $(event.target.parentElement).attr('class')=="baseRow" )
 			{
 				baseName = event.target.textContent;
-				console.log(baseName);
 				editBase(baseName);
 			}
 		}
@@ -59,20 +58,18 @@ $(document).ready(function ()
 			    success: function(tables)         
 			    {
 			      drawTables(tables);
-			      console.log("EditBase answer:success");
-			      console.log(tables);
 			    },
 			    error: function(data)
 			    {
 			      $(".errorMessage").css("display","block");
 			      $('#testOut').html("<p>"+data+"</p>");
-			     console.log("EditBase answer:error");
+			  
 			    }
 		})
 	}
 	//Удалить таблицу 
 	function deleteBase(baseName){
-		console.log("deleting \""+baseName+"\" ...")
+		
 		$.ajax({  
 				type:'post',                                    
 			    url: 'handler.php', 
@@ -80,13 +77,13 @@ $(document).ready(function ()
 			    dataType: 'json',                  
 			    success: function(data)         
 			    {
-			      console.log(data);
+			  
 			    },
 			    error: function(data)
 			    {
 			      $(".errorMessage").css("display","block");
 			      $('#testOut').html("<p>"+data+"</p>");
-			      console.log("error");
+			  
 			    }
 		});
 	}
@@ -100,35 +97,19 @@ $(document).ready(function ()
 	 		$(deleteBtn).css("display","block");
 	 	}
 	});
-	$("#baseTable").on('mouseover','.text', function () {
-		var deleteBtn = event.target.parentElement.lastElementChild;
-	 	if(deleteBtn!=null)
-	 	{
-	 		$(deleteBtn).css("display","block");
-	 	}
-	});
 	$("#baseTable").on('mouseover','.deleteBtn', function () {
 		var deleteBtn = event.target;
 	 	if(deleteBtn!=null)
 	 	{
 	 		$(deleteBtn).css("display","block");
-	 		
 	 	}
 	});
-	
  	$("#baseTable").on('mouseout','.baseRow', function () {
 		var deleteBtn = event.target.lastElementChild;
 		 	if(deleteBtn!=null)
 		 	{
 		 		$(deleteBtn).css("display","none");
 		 	}
-	});
-	$("#baseTable").on('mouseout','.text', function () {
-	var deleteBtn = event.target.parentElement.lastElementChild;
-	 	if(deleteBtn!=null)
-	 	{
-	 		$(deleteBtn).css("display","none");
-	 	}
 	});
 	$("#baseTable").on('mouseout','.deleteBtn', function () {
 		var deleteBtn = event.target;
@@ -137,7 +118,6 @@ $(document).ready(function ()
 	 		$(deleteBtn).css("display","none");
 	 	}
 	});
-	
 	////Конец этого неадекватного обработчика...
 	
 	//Заполнить таблицу
@@ -146,7 +126,7 @@ $(document).ready(function ()
 		for(var i = 0; i<dbs.length; i++)
 		{
 			$("#loader").css("display","none");
-			console.log(dbs[i])
+		
 			$("#baseTable").append("<div class='baseRow'><p class='text'>"+dbs[i]+"</p><i class='fas fa-trash-alt deleteBtn'></i></div>");
 		}
 	}
@@ -157,13 +137,13 @@ $(document).ready(function ()
 		    success: function(data)         
 		    {
 		      fillTable(data);
-		      console.log("success");
+		     
 		    },
 		    error: function(data)
 		    {
 		      $(".errorMessage").css("display","block");
 		      $('#testOut').html("<p>"+data+"</p>");
-		      console.log("error");
+		   
 		    }
 	});
 	//Добавть базу в таблицу
@@ -171,14 +151,14 @@ $(document).ready(function ()
 	{
 		$("#baseTable").append("<div class='baseRow'><p  class='text'>"+baseName+"</p><i class='fas fa-trash-alt deleteBtn'></i></div>");
 	}
-	//кнопка "Закрыть" в вспывающем окне с ошибко
+	//кнопка "Закрыть" в вспывающем окне с ошибкой
 	$(".closeBtn").click(function()
 	{
 			$(".errorMessage").css("display","none");
 	});
 	//Нажали кнопку "Создать"
 	$("#createBaseForm").submit(function(event){
-		console.log("submit");
+		
 		event.preventDefault();
 		$.ajax({  
 			type:'post',                                    
@@ -187,7 +167,7 @@ $(document).ready(function ()
 		    dataType: 'json',                  
 		    success: function(data)         
 		    {
-		      console.log(data);
+		     
 		      if(data!="0")
 		      {
 		      	addBaseInTable(data);
@@ -201,8 +181,16 @@ $(document).ready(function ()
 		    {
 		      $(".errorMessage").css("display","block");
 		      $('#testOut').html("<p>"+data+"</p>");
-		      console.log("error");
+		      
 		    }
 		});
+	});
+	$("#createTableBtn").click(function(){
+		$("#dialogContainer").css("display","none");
+		$("#mainForm").css("display","none");
+		$("#createBaseForm").css("display","none");
+
+		$("#createTableOptions").css("display","block");
+		
 	});
 });

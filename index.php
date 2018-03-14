@@ -26,6 +26,7 @@
 			</div>
 		</div>
 	</div>
+	<!--Форма создания БД-->
 	<form id="createBaseForm" class="simpleForm" action="">
 	<div class="formTitle">Создать базу данных</div>
 	<div class="formContent">
@@ -36,24 +37,27 @@
 	 	<button type="submit" class="myBtn" value="Create">Создать</button>
  	</div>
 	</form>
-
-
+	<!--Оснавная таблица-->
 	<div id="mainForm" class="simpleForm" action="index.php">
 		<div class="tableTitle">Имя базы данных</div>
 		<div id="baseTable"><div id="loader"><img src="Images/loader.svg"></div></div>
 	</div>
+	<div id="createTableOptions" class="simpleForm">
+		<div>Другой экран как бэээ</div>
+	</div>
+	<!--Диалоговое окно-->
 	<div id="dialogContainer">
 		<div id="dialogWindow">
 			<div id="dialogWindowTitle">
 				<div id="dialogWindowTitleText"></div><i class='fas fa-times colseWindowBtn'></i>
 			</div>
 			<div id="dialogWindowContent">
-				<form id="createTableForm">
+				<form id="createTableForm" onsubmit="">
 					<div class="createTabeTitle">Создать таблицу:</div>
 					<div class="flexRowContainer">
 						<div class="createTableRow">
 							<label class="labelTableName" for="TableName">Имя таблицы:</label>
-							<input class="tableNameInput myInput" type="text" required name="TableName"/>
+							<input id="tableNameInput" class=" myInput" type="text" required name="TableName"/>
 						</div>
 						<div class="createTableRow">
 							<label class="labelNumbersOfColumn">Количество столбцов таблицы:</label>
@@ -61,8 +65,10 @@
 						</div>
 
 					</div>
-					<input type="submit" name="createTable" class="myBtn createTableBtn" value="Создать">
 				</form>
+				<div class="flexButtonContainer">
+						<input type="submit" name="createTable" id="createTableBtn" class="myBtn" value="Создать">
+					</div>
 				<div class="createTabeTitle">Таблица</div>
 				<div id="dialogWindowTable"></div>
 			</div>
