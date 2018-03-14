@@ -4,15 +4,16 @@
 	<meta charset="utf-8">
 	<title>Interface</title>
 
-	<script type="text/javascript" src="Scripts/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
-	<script type="text/javascript" src="Scripts/myAjax.js"></script>
-
+	
+	
 	<link href="https://fonts.googleapis.com/css?family=Roboto&amp;subset=cyrillic" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="Styles/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="Styles/myStyles.css">
 
+	<script type="text/javascript" src="Scripts/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
+	<script type="text/javascript" src="Scripts/myAjax.js"></script>
 </head>
 <body>
 <div>
@@ -25,7 +26,7 @@
 			</div>
 		</div>
 	</div>
-	<form id="createBaseForm" class="myForm" action="">
+	<form id="createBaseForm" class="simpleForm" action="">
 	<div class="formTitle">Создать базу данных</div>
 	<div class="formContent">
 		<div class="form-group">
@@ -37,14 +38,14 @@
 	</form>
 
 
-	<div id="mainForm" class="myForm" action="index.php">
+	<div id="mainForm" class="simpleForm" action="index.php">
 		<div class="tableTitle">Имя базы данных</div>
 		<div id="baseTable"><div id="loader"><img src="Images/loader.svg"></div></div>
 	</div>
 	<div id="dialogContainer">
 		<div id="dialogWindow">
 			<div id="dialogWindowTitle">
-				<div id="dialogWindowTitleText"></div><div id="colseWindowBtn"></div>
+				<div id="dialogWindowTitleText"></div><i class='fas fa-times colseWindowBtn'></i>
 			</div>
 			<div id="dialogWindowContent">
 				<form id="createTableForm">

@@ -12,13 +12,13 @@ $(document).ready(function ()
 	    }
 	}
 	//Закрыть всплывающее окно
-	$('#colseWindowBtn').click(function(){
+	$('.colseWindowBtn').click(function(){
 		$("#dialogContainer").css("display","none");
 	})
 	//находим элемент на который нажали на странице
 	$('body').click(function (event) {
 	    var baseName="";
-	     if($(event.target).attr('class')=="fa fa-trash deleteBtn")
+	     if($(event.target).attr('class')=="fas fa-trash-alt deleteBtn")
 	    {
 	    	var row = event.target.parentElement;
 	    	var leftSide = row.firstElementChild;
@@ -147,7 +147,7 @@ $(document).ready(function ()
 		{
 			$("#loader").css("display","none");
 			console.log(dbs[i])
-			$("#baseTable").append("<div class='baseRow'><p class='text'>"+dbs[i]+"</p><i class='fa fa-trash deleteBtn'></i></div>");
+			$("#baseTable").append("<div class='baseRow'><p class='text'>"+dbs[i]+"</p><i class='fas fa-trash-alt deleteBtn'></i></div>");
 		}
 	}
 	$.ajax({  
@@ -169,7 +169,7 @@ $(document).ready(function ()
 	//Добавть базу в таблицу
 	function addBaseInTable(baseName)
 	{
-		$("#baseTable").append("<div class='baseRow'><p  class='text'>"+baseName+"</p><i class='fa fa-trash deleteBtn'></i></div>");
+		$("#baseTable").append("<div class='baseRow'><p  class='text'>"+baseName+"</p><i class='fas fa-trash-alt deleteBtn'></i></div>");
 	}
 	//кнопка "Закрыть" в вспывающем окне с ошибко
 	$(".closeBtn").click(function()
