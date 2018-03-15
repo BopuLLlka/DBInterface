@@ -14,7 +14,13 @@ $(document).ready(function ()
 	//Закрыть всплывающее окно
 	$('.colseWindowBtn').click(function(){
 		$("#dialogContainer").css("display","none");
-	})
+	});
+	$('#dialogContainer').click(function(event){
+		if(event.target.id=="dialogContainer")
+		{
+			$("#dialogContainer").css("display","none");
+		}
+	});
 	//находим элемент на который нажали на странице
 	$('body').click(function (event) {
 	    var baseName="";
@@ -87,7 +93,6 @@ $(document).ready(function ()
 			    }
 		});
 	}
-	
 	////Огромный обработчик для появления кнопки удаления при наведении на строку.
 	//Ищем строчку на которую навели мышкой
 	$("#baseTable").on('mouseover','.baseRow', function () {
@@ -185,12 +190,26 @@ $(document).ready(function ()
 		    }
 		});
 	});
+
 	$("#createTableBtn").click(function(){
 		$("#dialogContainer").css("display","none");
 		$("#mainForm").css("display","none");
 		$("#createBaseForm").css("display","none");
 
 		$("#createTableOptions").css("display","block");
+		createPage("newBase",4);
 		
 	});
+
+	function createPage(name,rowNumbers)
+	{
+		$("#newTableName").text("Имя таблицы: "+name);
+		var i = 0;
+		while(i<rowNumbers)
+		{
+			i++;
+			$("#newTableRowContainer").append(
+				"<input type='text'><select><option value='int'>int</option><option value='string'>string</option><option value='double'>double</option><option value='float'>float</option></select><input type='text'/><select><option>1</option><option>2</option></select><select><option>1</option><option>2</option></select><input class='checkBoxCenter' type='checkBox'/><select><option>1</option><option>2</option></select><input class='checkBoxCenter' type='checkBox'/><input type='text'/>");
+		}
+	}
 });

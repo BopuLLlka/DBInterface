@@ -293,7 +293,30 @@ body{
 }
 #createTableOptions{
 	display: none;
+	width: 98%;
+	min-width: 1000px;
 	color: white;
+}
+#newTableName{
+	padding: 5px;
+	border-bottom: 1px solid black;
+}
+#newTableRowContainer{
+	display: grid;
+	grid-template-columns: 18% 10% 14% 14% 10% 3% 10% 3% 15%;
+	grid-template-rows: auto;
+	grid-row-gap: 5px;
+	grid-column-gap: 5px;
+}
+.newTableTitleElement
+{
+	text-align: center;
+	width: 100%;
+	background-color: grey;
+}
+.checkBoxCenter
+{
+	margin: auto;
 }
 
 /*Медиа выражения*/

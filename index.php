@@ -16,7 +16,7 @@
 	<script type="text/javascript" src="Scripts/myAjax.js"></script>
 </head>
 <body>
-<div>
+<div id="main">
 	<div class="errorMessage">
 		<div class="errorMessageWindow">
 			<div class="errorTitle">Ошибка</div>
@@ -43,7 +43,21 @@
 		<div id="baseTable"><div id="loader"><img src="Images/loader.svg"></div></div>
 	</div>
 	<div id="createTableOptions" class="simpleForm">
-		<div>Другой экран как бэээ</div>
+		
+		<div id="newTableName" class="tableTitle"></div>
+		<div id="newTableRowContainer">
+			<!--<div id="newTableRowContainerTitle">-->
+				<div class="newTableTitleElement">Имя</div>
+				<div class="newTableTitleElement">Тип</div>
+				<div class="newTableTitleElement">Длина/Значения</div>
+				<div class="newTableTitleElement">По умолчанию</div>
+				<div class="newTableTitleElement">Сравнение</div>
+				<div class="newTableTitleElement">Null</div>
+				<div class="newTableTitleElement">Индекс</div>
+				<div class="newTableTitleElement">A_I</div>
+				<div class="newTableTitleElement">Комментарии</div>
+			<!--</div>-->
+		</div>
 	</div>
 	<!--Диалоговое окно-->
 	<div id="dialogContainer">
