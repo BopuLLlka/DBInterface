@@ -11,16 +11,6 @@ $(document).ready(function ()
 	        }
 	    }
 	}
-	//Закрыть всплывающее окно
-	$('.colseWindowBtn').click(function(){
-		$("#dialogContainer").css("display","none");
-	});
-	$('#dialogContainer').click(function(event){
-		if(event.target.id=="dialogContainer")
-		{
-			$("#dialogContainer").css("display","none");
-		}
-	});
 	//находим элемент на который нажали на странице
 	$('body').click(function (event) {
 	    var baseName="";
@@ -76,7 +66,6 @@ $(document).ready(function ()
 	}
 	//Удалить таблицу 
 	function deleteBase(baseName){
-		
 		$.ajax({  
 				type:'post',                                    
 			    url: 'handler.php', 

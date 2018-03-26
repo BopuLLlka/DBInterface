@@ -12,5 +12,26 @@ $(document).ready(function ()
 		}
 	})
 
+	$("#showQueryBtn").click(function(){
+		sendAjaxForm("createTableOptions", "/Controllers/showQuery.php");
+	});
+	
+	function sendAjaxForm(ajax_form, url) {
+	    $.ajax({
+	        url:     url, //url страницы 
+	        type:     "GET", //метод отправки
+	        dataType: "html", //формат данных
+	        data: $("#"+ajax_form).serialize(),  // Сеарилизуем объект
+	        success: function(response) { //Данные отправлены успешно
+	        	$("#dialogContainer").css("display","block");
+	        	$("#dialogWindowContent").html(response);
+	        	console.log(response);
+	    	},
+	    	error: function(response) { // Данные не отправлены
+	            console.log('Ошибка. Данные не отправлены.');
+	    	}
+	 	});
+	}
+	
 
 });

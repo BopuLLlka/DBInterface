@@ -4,15 +4,15 @@
 	<meta charset="utf-8">
 	<title>Interface</title>
 	<!--Стили-->
-	<link href="https://fonts.googleapis.com/css?family=Roboto&amp;subset=cyrillic" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto&amp;subset=cyrillic" rel="stylesheet">
 	<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="/Styles/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/Styles/myStyles.css">
 	<!--Скрипты-->
 	<script type="text/javascript" src="/Scripts/jquery-3.3.1.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
-	<script type="text/javascript" src="/Scripts/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/Scripts/createTableOptionsScript.js"></script>
+	<script type="text/javascript" src="/Scripts/dialogs.js"></script>
 </head>
 <body>
 	<form id="createTableOptions" class="simpleForm" action="table.php" method="GET">
@@ -29,7 +29,6 @@
 				<div class="newTableTitleElement">Индекс</div>
 				<div class="newTableTitleElement">A_I</div>
 				<div class="newTableTitleElement">Комментарии</div>
-
 
 				<input class="invisible" type="text" name="TableName" value="<?php echo $_POST['TableName'] ?>" />
 				<input class="invisible" type="text" name="TableNumbersOfColumn" value="<?php echo $_POST['TableNumbersOfColumn'] ?>">
@@ -81,8 +80,18 @@
 			?>
 		</div>
 		<div class="flexButtonContainer marginPaddingAndBorderTop">
-				<input class="myBtn" type="submit" id="createTableBtn" value="Создать" name="">
-		<div>
+				<input type="button" name="" id="showQueryBtn" class="myBtn" value="Показать запрос"/>
+				<input class="myBtn" type="submit" id="createTableBtn" value="Создать" name=""/>
+		</div>
 	</form>
+	<div id="dialogContainer">
+		<div id="dialogWindow">
+			<div id="dialogWindowTitle">
+				<div id="dialogWindowTitleText">Запрос</div><i class='fas fa-times colseWindowBtn'></i>
+			</div>
+			<div id="dialogWindowContent">
+			</div>
+		</div>
+	</div>
 </body>
 </html>

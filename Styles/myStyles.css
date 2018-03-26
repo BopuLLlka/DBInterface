@@ -183,6 +183,7 @@ body{
 	background-color: rgba(0, 0, 0, 0.5);
 	width: 100%;
 	height: 100%;
+	z-index: 1000;
 	display: none;
 }
 /*Само диалоговое окно*/
@@ -327,11 +328,10 @@ body{
 {
 	display: none;
 }
-#phpOut{
-	background-color: white;
-	width: 500px;
-	height: 500px;
-	color: red;
+
+#showQueryBtn
+{
+	margin: 0px 0px 10px 10px;
 }
 
 /*Медиа выражения*/
