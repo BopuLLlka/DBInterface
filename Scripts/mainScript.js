@@ -54,6 +54,7 @@ $(document).ready(function ()
 	//Открыть окно редактированя базы
 	function editBase(baseName)
 	{
+		$("#baseNameInput").val(baseName);
 		$("#dialogContainer").css("display","block");
 		$("#dialogWindowTitleText").html(baseName);
 		$.ajax({
@@ -190,48 +191,7 @@ $(document).ready(function ()
 		    }
 		});
 	});
-
-	$("#createTableBtn").click(function(){
-		$("#dialogContainer").css("display","none");
-		$("#mainForm").css("display","none");
-		$("#createBaseForm").css("display","none");
-
-		$("#createTableOptions").css("display","block");
-		createPage("newBase",10);
-		
-	});
-
-	function createPage(name,rowNumbers)
-	{
-		$("#newTableName").text("Имя таблицы: "+name);
-		var i = 0;
-		while(i<rowNumbers)
-		{
-			i++;
-			//Несколько append'во, для лучшей читаемости, ВРЕМЕННО!
-			$("#newTableRowContainer").append(
-				"<input type='text'><select><option value='INT'>INT</option><option value='VARCHAR'>VARCHAR</option><option value='TEXT'>TEXT</option><option value='DATE'>DATE</option></select>");
-			$("#newTableRowContainer").append(
-					"<input type='text'/>"
-				);
-			$("#newTableRowContainer").append(
-					"<select><option>1</option><option>2</option></select>"
-				);
-			$("#newTableRowContainer").append(
-					"<select><option>1</option><option>2</option></select>"
-				);
-			$("#newTableRowContainer").append(
-				"<input class='checkBoxCenter' type='checkBox'/>"
-			);
-			$("#newTableRowContainer").append(
-					"<select><option>1</option><option>2</option></select>"
-				);
-			$("#newTableRowContainer").append(
-					"<input class='checkBoxCenter' type='checkBox'/>"
-				);
-			$("#newTableRowContainer").append(
-					"<input type='text'/>"
-				);
-		}
-	}
+	
 });
+
+
