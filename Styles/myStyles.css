@@ -86,6 +86,9 @@ body{
 	color: white;
 	border: 1px solid black;
 }
+.queryText{
+	padding: 0px 10px 0px 10px;
+}
 
 /*Сообщение об ошибки(закрывающее весь экран*/
 .errorMessage{

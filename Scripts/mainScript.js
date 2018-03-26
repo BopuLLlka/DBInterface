@@ -49,7 +49,7 @@ $(document).ready(function ()
 		$("#dialogWindowTitleText").html(baseName);
 		$.ajax({
 			type:'get',                                    
-			    url: 'handler.php', 
+			    url: 'Controllers/tables.php', 
 			    data: {dbName:baseName},                                                                   
 			    dataType: 'json',                  
 			    success: function(tables)         
@@ -68,7 +68,7 @@ $(document).ready(function ()
 	function deleteBase(baseName){
 		$.ajax({  
 				type:'post',                                    
-			    url: 'handler.php', 
+			    url: 'Controllers/tables.php', 
 			    data: {dbName:baseName},                                                                   
 			    dataType: 'json',                  
 			    success: function(data)         
@@ -127,7 +127,7 @@ $(document).ready(function ()
 	}
 	$.ajax({  
 			type:'get',                                    
-		    url: 'dbApi.php',                                                                    
+		    url: 'Controllers/bases.php',                                                                    
 		    dataType: 'json',                  
 		    success: function(data)         
 		    {
@@ -157,7 +157,7 @@ $(document).ready(function ()
 		event.preventDefault();
 		$.ajax({  
 			type:'post',                                    
-		    url: 'handler.php',                 
+		    url: 'Controllers/tables.php',                 
 		    data: {data:$("#baseName").val()},                                                      
 		    dataType: 'json',                  
 		    success: function(data)         
@@ -176,7 +176,6 @@ $(document).ready(function ()
 		    {
 		      $(".errorMessage").css("display","block");
 		      $('#testOut').html("<p>"+data+"</p>");
-		      
 		    }
 		});
 	});

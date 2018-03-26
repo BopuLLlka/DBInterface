@@ -89,7 +89,7 @@
 			<div id="dialogWindowTitle">
 				<div id="dialogWindowTitleText">Запрос</div><i class='fas fa-times colseWindowBtn'></i>
 			</div>
-			<div id="dialogWindowContent">
+			<div id="dialogWindowContent" class="queryText">
 			</div>
 		</div>
 	</div>
