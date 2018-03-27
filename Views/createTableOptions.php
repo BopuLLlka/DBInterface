@@ -15,7 +15,7 @@
 	<script type="text/javascript" src="/Scripts/dialogs.js"></script>
 </head>
 <body>
-	<form id="createTableOptions" class="simpleForm" action="table.php" method="GET">
+	<form id="createTableOptions" class="simpleForm" action="" method="GET">
 		<div id="newTableName" class="tableTitle"><?php echo $_POST['TableName']; ?></div>
 		<div id="newTableRowContainer">
 			<!--<div id="newTableRowContainerTitle">-->

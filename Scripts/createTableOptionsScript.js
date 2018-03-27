@@ -10,10 +10,10 @@ $(document).ready(function ()
 			
 			$("#nullCheckBox"+index+"").prop( "checked", true );
 		}
-	})
+	});
 
 	$("#showQueryBtn").click(function(){
-		sendAjaxForm("createTableOptions", "/Controllers/showQuery.php");
+		sendAjaxForm("createTableOptions", "/Controllers/tables.php");
 	});
 	
 	function sendAjaxForm(ajax_form, url) {
@@ -33,5 +33,21 @@ $(document).ready(function ()
 	 	});
 	}
 	
+	$("#createTableOptions").submit(function(event){
+		event.preventDefault();
+		$.ajax({
+			type: "GET",
+	        url: "/Controllers/createTable.php", 
+	        dataType: "html", 
+	        data: $("#createTableOptions").serialize(),  // Сеарилизуем объект
+	        success: function(response) { 
+	        	$(location).attr('href', '/');
+	        	console.log(response);
+	    	},
+	    	error: function(response) { 
+	            console.log('Ошибка. Данные не отправлены.');
+	    	}
+	 	});
+	});
 
 });

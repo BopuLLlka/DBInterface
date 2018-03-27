@@ -48,29 +48,29 @@
 		<div id="dialogWindowTitle">
 			<div id="dialogWindowTitleText"></div><i class='fas fa-times colseWindowBtn'></i>
 		</div>
-		<div id="dialogWindowContent">
-			<form id="createTableForm" onsubmit="" action="Views/createTableOptions.php" method="POST">
-				<div class="createTabeTitle">Создать таблицу:</div>
-				<div class="flexRowContainer">
-					<input class="invisible" id="baseNameInput" type="text" name="BaseName"/>
-					<div class="createTableRow">
-						<label class="labelTableName" for="TableName">Имя таблицы:</label>
-						<input id="tableNameInput" class=" myInput" type="text" required name="TableName" pattern="^[_A-z0-9]{1,}$" />
-					</div>
-					<div class="createTableRow">
-						<label class="labelNumbersOfColumn">Количество столбцов таблицы:</label>
-						<input class="numbersOfColumn myInput" type="text" required name="TableNumbersOfColumn"/>
-					</div>
+		
+		<form id="createTableForm" onsubmit="" action="Views/createTableOptions.php" method="POST">
+			<div class="createTabeTitle">Создать таблицу:</div>
+			<div class="flexRowContainer">
+				<input class="invisible" id="baseNameInput" type="text" name="BaseName"/>
+				<div class="createTableRow">
+					<label class="labelTableName" for="TableName">Имя таблицы:</label>
+					<input id="tableNameInput" class=" myInput" type="text" required name="TableName" pattern="^[_A-z0-9]{1,}$" />
+				</div>
+				<div class="createTableRow">
+					<label class="labelNumbersOfColumn">Количество столбцов таблицы:</label>
+					<input class="numbersOfColumn myInput" type="text" required name="TableNumbersOfColumn"/>
+				</div>
 
-				</div>
-				<div class="flexButtonContainer">
-					<input type="submit" name="createTable" id="createTableBtn" class="myBtn" value="Создать">
-				</div>
-			</form>
-				
-			<div class="createTabeTitle">Таблица</div>
-			<div id="dialogWindowTable"></div>
-		</div>
+			</div>
+			<div class="flexButtonContainer">
+				<input type="submit" name="createTable" id="createTableBtn" class="myBtn" value="Создать">
+			</div>
+		</form>
+			
+		<div class="createTabeTitle">Таблица</div>
+		<div id="dialogWindowTable"></div>
+		
 	</div>
 </div>
 </body>

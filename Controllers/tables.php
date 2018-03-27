@@ -1,61 +1,42 @@
 <?php
-//Connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-// Create connection
-$conn = new mysqli($servername, $username, $password);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$dbName = $_POST["dbName"];
-
-if(!is_null($dbName))
-{
-	$sql = "DROP DATABASE $dbName";
-	if ($conn->query($sql) === TRUE) {
-	    echo json_encode("Database drop successfully");
-	} else {
-	    echo json_encode("Error creating database: " . $conn->error);
+	//Connection
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	// Create connection
+	$conn = new mysqli($servername, $username, $password);
+	// Check connection
+	if ($conn->connect_error) {
+	    die("Connection failed: " . $conn->connect_error);
 	}
-}
-else
-{
-	$dbName = $_GET["dbName"];
-
-	if(!is_null($dbName))
+	//Проверка на GET запрос
+	$method = $_POST["method"];
+	$dbName = $_POST["dbName"];
+	$tableName = $_POST["tableName"];
+	
+	if(!is_null($method))
 	{
-		$sql = "SHOW TABLES FROM $dbName";
-		$result = mysqli_query($conn, $sql);
-		if($result==true)
+		if(!is_null($dbName))
 		{
-			$tables = array();
-			while($sql = mysqli_fetch_array($result))
+			if($method == "GET")
 			{
-				array_push($tables, $sql[0]);
-			}
-			echo json_encode($tables);
-		} 
-		else
-		{
-			 echo json_encode("errorBlyat dbName=".$dbName);
-		}
-	}
-	else{
-		$postData = $_POST["data"];
-		if(!is_null($postData))
-		{
-			$sql = "CREATE DATABASE $postData";
-			if ($conn->query($sql) === TRUE) {
-			    echo json_encode($postData);
-			} else {
-			    echo json_encode("0");
+				$sql = "SHOW TABLES FROM $dbName";
+				$result = mysqli_query($conn, $sql);
+				if($result==true)
+				{
+					$tables = array();
+					while($sql = mysqli_fetch_array($result))
+					{
+						array_push($tables, $sql[0]);
+					}
+					echo json_encode($tables);
+				} 
+				else
+				{
+					 echo json_encode("Ошибка! dbName=".$dbName);
+				}
 			}
 		}
 	}
-}
-
-$conn->close();
+	$conn->close();
 ?>

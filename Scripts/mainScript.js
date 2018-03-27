@@ -1,5 +1,7 @@
 $(document).ready(function ()
 {
+	var isEmpty = true;
+
 	//Свойство для красивого удаления
 	Element.prototype.remove = function() {
     this.parentElement.removeChild(this);
@@ -20,6 +22,12 @@ $(document).ready(function ()
 	    	var leftSide = row.firstElementChild;
 	    	baseName = leftSide.textContent;
 	    	row.remove();
+	    	
+	    	if($("#baseTable").html()=="")
+	    	{
+	    		isEmpty = true;
+	    		$("#baseTable").append("<p class='emptyBaseTableText'>Пока нет баз данных!</p>");
+	    	}
 	    	deleteBase(baseName);
 	    }
 	    else{
@@ -35,8 +43,6 @@ $(document).ready(function ()
 	{
 		var dialogWindowContent=$("#dialogWindowTable");
 		dialogWindowContent.html("");
-
-
 		tables.forEach(function(element){
 			dialogWindowContent.append("<div class='tableElement'><input class='tableElementCheckBox' type='checkBox'/><div class='tableElementName'>"+element+"</div></div>");
 		});
@@ -48,10 +54,14 @@ $(document).ready(function ()
 		$("#dialogContainer").css("display","block");
 		$("#dialogWindowTitleText").html(baseName);
 		$.ajax({
-			type:'get',                                    
+			type:'POST',                                    
 			    url: 'Controllers/tables.php', 
-			    data: {dbName:baseName},                                                                   
-			    dataType: 'json',                  
+			    data: 
+			    {
+			    	method: "GET",
+			    	dbName: baseName
+			    },  
+			    dataType: 'json',                                                                            
 			    success: function(tables)         
 			    {
 			      drawTables(tables);
@@ -60,17 +70,19 @@ $(document).ready(function ()
 			    {
 			      $(".errorMessage").css("display","block");
 			      $('#testOut').html("<p>"+data+"</p>");
-			  
 			    }
 		})
 	}
 	//Удалить таблицу 
 	function deleteBase(baseName){
 		$.ajax({  
-				type:'post',                                    
-			    url: 'Controllers/tables.php', 
-			    data: {dbName:baseName},                                                                   
-			    dataType: 'json',                  
+				type:'POST',                                    
+			    url: 'Controllers/bases.php', 
+			    data:
+			    {
+			    	method:"DELETE",
+			    	dbName:baseName
+			    },                                                                               
 			    success: function(data)         
 			    {
 			  
@@ -78,7 +90,7 @@ $(document).ready(function ()
 			    error: function(data)
 			    {
 			      $(".errorMessage").css("display","block");
-			      $('#testOut').html("<p>"+data+"</p>");
+			      $('#testOut').html("<p>"+"Какая-то ошибка дропа!"+data+"</p>");
 			  
 			    }
 		});
@@ -116,40 +128,52 @@ $(document).ready(function ()
 	////Конец этого неадекватного обработчика...
 	
 	//Заполнить таблицу
-	function fillTable(dbs)
+	function fillBasesTable(dbs)
 	{
+		$("#baseTable").html("");
+		if(dbs.length==0)
+		{
+			$("#baseTable").append("<p class='emptyBaseTableText'>Пока нет баз данных!</p>");
+			isEmpty=true;
+		}
+		else
+		{
+			isEmpty=false;
+		}
 		for(var i = 0; i<dbs.length; i++)
 		{
-			$("#loader").css("display","none");
-		
 			$("#baseTable").append("<div class='baseRow'><p class='text'>"+dbs[i]+"</p><i class='fas fa-trash-alt deleteBtn'></i></div>");
 		}
 	}
 	$.ajax({  
-			type:'get',                                    
+			type:'POST',
+			data:{ method:"GET"},                                    
 		    url: 'Controllers/bases.php',                                                                    
 		    dataType: 'json',                  
 		    success: function(data)         
 		    {
-		      fillTable(data);
-		     
+		      fillBasesTable(data);
 		    },
 		    error: function(data)
 		    {
 		      $(".errorMessage").css("display","block");
 		      $('#testOut').html("<p>"+data+"</p>");
-		   
 		    }
 	});
 	//Добавть базу в таблицу
 	function addBaseInTable(baseName)
 	{
+		if(isEmpty)
+		{
+			$("#baseTable").html("");
+			isEmpty=false;
+		}
 		$("#baseTable").append("<div class='baseRow'><p  class='text'>"+baseName+"</p><i class='fas fa-trash-alt deleteBtn'></i></div>");
 	}
 	//кнопка "Закрыть" в вспывающем окне с ошибкой
 	$(".closeBtn").click(function()
 	{
-			$(".errorMessage").css("display","none");
+		$(".errorMessage").css("display","none");
 	});
 	//Нажали кнопку "Создать"
 	$("#createBaseForm").submit(function(event){
@@ -157,9 +181,13 @@ $(document).ready(function ()
 		event.preventDefault();
 		$.ajax({  
 			type:'post',                                    
-		    url: 'Controllers/tables.php',                 
-		    data: {data:$("#baseName").val()},                                                      
-		    dataType: 'json',                  
+		    url: 'Controllers/bases.php',                 
+		    data: 
+		    {
+		    	method:"PUT",
+		    	dbName:$("#baseName").val()
+		    },  
+		    dataType: 'json',                                                                     
 		    success: function(data)         
 		    {
 		     
@@ -169,7 +197,7 @@ $(document).ready(function ()
 		      }
 		      else{
 		      	$(".errorMessage").css("display","block");
-		       $('#testOut').html("<p>"+"Что-то случилось, пока я не буду давать точно информации, ибо я не умею..."+"</p>");
+		        $('#testOut').html("<p>"+"Что-то случилось, пока я не буду давать точно информации, ибо я не умею..."+"</p>");
 		      }
 		    },
 		    error: function(data)

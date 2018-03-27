@@ -29,6 +29,9 @@ body{
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 
+.emptyBaseTableText{
+	padding: 10px;
+}
 /*Стили для форм*/
 .simpleForm
 {
@@ -205,6 +208,7 @@ body{
 	color: white;
 	background-color: #333336;
 }
+
 /*Заголовок диалогового окна*/
 #dialogWindowTitle{
 	display: flex;
@@ -222,6 +226,12 @@ body{
 	font-size: 20px;
 	padding-right: 10px;
 	color: white;
+}
+
+#dialogWindowTable
+{
+	max-height: 270px;
+	overflow-y: scroll;
 }
 /*Крестик для закрытия диалогового окна*/
 .colseWindowBtn{
