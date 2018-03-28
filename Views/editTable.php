@@ -10,13 +10,31 @@
 	<link rel="stylesheet" type="text/css" href="/Styles/myStyles.css">
 	<!--Скрипты-->
 	<script type="text/javascript" src="/Scripts/jquery-3.3.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+	<script type="text/javascript" src="/Scripts/editTable.js"></script>
 </head>
 <body>
-<div id="main">
-	<div class="simpleForm">
-		
+<div id="tablePage">
+	<div id="tableMenu" ><div class="tableMenuItem activeItem" >Обзор</div><div class="tableMenuItem">Структура</div><div class="tableMenuItem">Вставить</div></div>
+	<div id="tablePageForm" >
+		<div id="tableName" >Таблица: <?php echo $_POST['tableName']; ?></div>
+			<div id="tableRowContainer">
+				<!--<div id="newTableRowContainerTitle">-->
+					<div class="newTableTitleElement">Имя</div>
+					<div class="newTableTitleElement">Тип</div>
+					<div class="newTableTitleElement">Длина/Значения</div>
+					<div class="newTableTitleElement">По умолчанию</div>
+					<div class="newTableTitleElement">Сравнение</div>
+					<div class="newTableTitleElement">Атрибут</div>
+					<div class="newTableTitleElement">Null</div>
+					<div class="newTableTitleElement">Индекс</div>
+					<div class="newTableTitleElement">A_I</div>
+					<div class="newTableTitleElement">Комментарии</div>
+
+					<input class="invisible" type="text" name="TableName" value="<?php echo $_POST['TableName'] ?>" />
+					<input class="invisible" type="text" name="TableNumbersOfColumn" value="<?php echo $_POST['TableNumbersOfColumn'] ?>">
+					<input class="invisible" type="text" name="BaseName" value="<?php echo $_POST['BaseName'] ?>">
 	</div>
 </div>
+
 </body>
 </html>

@@ -15,6 +15,7 @@
 	<script type="text/javascript" src="Scripts/dialogs.js"></script>
 </head>
 <body>
+
 <div class="errorMessage">
 	<div class="errorMessageWindow">
 		<div class="errorTitle">Ошибка</div>

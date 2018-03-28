@@ -44,7 +44,7 @@ $(document).ready(function ()
 		var dialogWindowContent=$("#dialogWindowTable");
 		dialogWindowContent.html("");
 		tables.forEach(function(element){
-			dialogWindowContent.append("<div class='tableElement'><input class='tableElementCheckBox' type='checkBox'/><div class='tableElementName'>"+element+"</div></div>");
+			dialogWindowContent.append("<form action='/Views/editTable.php' method='POST' class='tableElement'><input class='tableElementCheckBox' type='checkBox'/><input type='text' class='invisible' name='tableName' value='"+element+"'><input type='submit' class='dropStyles tableElementName' value='"+element+"' /></form>");
 		});
 	}
 	//Открыть окно редактированя базы
@@ -175,6 +175,9 @@ $(document).ready(function ()
 	{
 		$(".errorMessage").css("display","none");
 	});
+
+	
+	
 	//Нажали кнопку "Создать"
 	$("#createBaseForm").submit(function(event){
 		

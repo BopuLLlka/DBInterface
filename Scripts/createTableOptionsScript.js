@@ -13,7 +13,7 @@ $(document).ready(function ()
 	});
 
 	$("#showQueryBtn").click(function(){
-		sendAjaxForm("createTableOptions", "/Controllers/tables.php");
+		sendAjaxForm("createTableOptions", "/Controllers/showQuery.php");
 	});
 	
 	function sendAjaxForm(ajax_form, url) {
