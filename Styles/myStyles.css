@@ -399,6 +399,31 @@ body{
 {
 	margin: 0px 0px 10px 10px;
 }
+/*Страница просмотра/редактирования таблички*/
+/*Блок просмотра таблицы*/
+#tableView{
+	display: block;
+	height: 100px;
+}
+#tableRowContainerView
+{
+	display: grid;
+	grid-template-columns: 13% 9% 13% 13% 10% 8% 3% 10% 3% 15%;
+	grid-template-rows: auto;
+	grid-row-gap: 5px;
+	grid-column-gap: 5px;
+}
+/*Блок редактирования таблицы*/
+#tableEdit
+{
+	display: none;
+}
+#tablePaste
+{
+	display: none;
+	height: 100px;
+	color: green;
+}
 
 /*Медиа выражения*/
 @media screen and (min-width: 800px)

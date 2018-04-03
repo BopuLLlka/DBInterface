@@ -9,11 +9,17 @@
 	if ($conn->connect_error) {
 	    die("Connection failed: " . $conn->connect_error);
 	}
-	//Проверка на GET запрос
+
+	//Эти данные с главной страницы
 	$method = $_POST["method"];
 	$dbName = $_POST["dbName"];
 	$tableName = $_POST["tableName"];
 	
+	//Эти данные призодят со старницы редактирования базы
+	$action = $_POST['action'];
+	$baseName = $_POST['baseName'];
+	$tableNameEdit = $_POST['tableNameEdit'];
+
 	if(!is_null($method))
 	{
 		if(!is_null($dbName))
@@ -22,6 +28,7 @@
 			{
 				$sql = "SHOW TABLES FROM $dbName";
 				$result = mysqli_query($conn, $sql);
+
 				if($result==true)
 				{
 					$tables = array();
@@ -37,6 +44,32 @@
 				}
 			}
 		}
+	}
+	if(!is_null($action))
+	{
+		if($action=="View")
+		{
+			$conn->select_db($baseName);
+			$sql = "SELECT * FROM $tableNameEdit";
+			
+			if($result = $conn->query($sql))
+			{
+				echo json_encode($result->fetch_array());
+			} 
+			else
+			{
+				echo "ошибочка action=".$action."\nbaseName=".$baseName."\ntableName=".$tableNameEdit;
+			}
+		}
+		if($action=="Edit")
+		{
+			echo "Редактировать!";
+		}
+		if($action=="Paste")
+		{
+			echo "Вставить";
+		}
+
 	}
 	$conn->close();
 ?>

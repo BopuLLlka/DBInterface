@@ -4,7 +4,8 @@
 	<meta charset="utf-8">
 	<title>Interface</title>
 	<!--Стили-->
-<link href="https://fonts.googleapis.com/css?family=Roboto&amp;subset=cyrillic" rel="stylesheet">
+	<link rel="shortcut icon" href="/Images/favicon.png" type="image/png">
+	<link href="https://fonts.googleapis.com/css?family=Roboto&amp;subset=cyrillic" rel="stylesheet">
 	<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="/Styles/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/Styles/myStyles.css">
