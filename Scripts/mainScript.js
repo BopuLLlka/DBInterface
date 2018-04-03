@@ -39,12 +39,12 @@ $(document).ready(function ()
 		}
 	})
 	//Рисуем таблицы в всплыающем окне
-	function drawTables(tables)
+	function drawTables(tables, baseName)
 	{
 		var dialogWindowContent=$("#dialogWindowTable");
 		dialogWindowContent.html("");
 		tables.forEach(function(element){
-			dialogWindowContent.append("<form action='/Views/editTable.php' method='POST' class='tableElement'><input class='tableElementCheckBox' type='checkBox'/><input type='text' class='invisible' name='tableName' value='"+element+"'><input type='submit' class='dropStyles tableElementName' value='"+element+"' /></form>");
+			dialogWindowContent.append("<form action='/Views/editTable.php' method='POST' class='tableElement'><input class='tableElementCheckBox' type='checkBox'/><input type='text' class='invisible' name='baseName' value='"+baseName+"'><input type='text' class='invisible' name='tableName' value='"+element+"'><input type='submit' class='dropStyles tableElementName' value='"+element+"' /></form>");
 		});
 	}
 	//Открыть окно редактированя базы
@@ -64,7 +64,7 @@ $(document).ready(function ()
 			    dataType: 'json',                                                                            
 			    success: function(tables)         
 			    {
-			      drawTables(tables);
+			      drawTables(tables,baseName);
 			    },
 			    error: function(data)
 			    {

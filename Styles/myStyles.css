@@ -26,6 +26,28 @@ body{
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
+#header{
+	background-color: #444446;
+	height: 40px;
+	width: 100%;
+}
+#logo{
+	padding: 5px;
+	height: 40px;
+	width: 200px;
+	overflow: hidden;
+	align-content: center;
+	cursor: pointer;
+}
+#logo>img:first-child{
+	width:40px;
+	height: 100%;
+}
+#logo>img:last-child{
+	width: 140px;
+	margin-left: 5px;
+	height: 30px;
+}
 
 .emptyBaseTableText{
 	padding: 10px;
@@ -313,7 +335,7 @@ body{
 #tablePage
 {
 	position: absolute;
-	top:5px;
+	top:45px;
 	left: 1%;
 	width: 98%;
 	min-width: 1000px;
@@ -339,6 +361,7 @@ body{
 	cursor: pointer;
 	padding: 10px;
 	border: 1px solid black;
+	font-size: 18px;
 	background-color: grey;
 }
 .activeItem{
@@ -403,15 +426,36 @@ body{
 /*Блок просмотра таблицы*/
 #tableView{
 	display: block;
-	height: 100px;
 }
 #tableRowContainerView
 {
+	overflow-y: auto;
 	display: grid;
-	grid-template-columns: 13% 9% 13% 13% 10% 8% 3% 10% 3% 15%;
+	grid-template-columns: repeat(3,1fr);
 	grid-template-rows: auto;
 	grid-row-gap: 5px;
 	grid-column-gap: 5px;
+}
+.tableViewTitle
+{
+	background-color: grey;
+	text-align: center;
+	color: white;
+	font-size: 18px;
+	min-width: 150px;
+	overflow: hidden;
+}
+.tableViewElement
+{
+	background-color: lightgrey;
+	padding: 10px;
+	min-width: 40px;
+}
+#emptyTableText
+{
+	padding: 5px;
+	color: white;
+	font-size: 18px;
 }
 /*Блок редактирования таблицы*/
 #tableEdit

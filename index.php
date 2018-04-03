@@ -16,7 +16,7 @@
 	<script type="text/javascript" src="Scripts/dialogs.js"></script>
 </head>
 <body>
-
+<div id="header"><a href="/"><div id="logo"><img src="Images/logo.png"><img src="Images/logo2.png"></div></a></div>
 <div class="errorMessage">
 	<div class="errorMessageWindow">
 		<div class="errorTitle">Ошибка</div>

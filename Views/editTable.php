@@ -14,15 +14,17 @@
 	<script type="text/javascript" src="/Scripts/editTable.js"></script>
 </head>
 <body>
+<div id="header"><a href="/"><div id="logo"><img src="/Images/logo.png"><img src="/Images/logo2.png"></div></a></div>
 <div id="tablePage">
+	<input class="invisible" id="tableNameEdit" type="text" name="tableName" value="<?php echo $_POST['tableName'] ?>" />
+	<input class="invisible" id="baseName" type="text" name="baseName" value="<?php echo $_POST['baseName'] ?>">
+
 	<div id="tableMenu" ><div class="tableMenuItem activeItem" >Обзор</div><div class="tableMenuItem">Структура</div><div class="tableMenuItem">Вставить</div></div>
 	<div id="tablePageForm" >
 		<div id="tableName" >Таблица: <?php echo $_POST['tableName']; ?></div>
 		<div id="tableView">
-			<div id="#tableRowContainerView">
-					<input class="invisible" type="text" name="TableName" value="<?php echo $_POST['TableName'] ?>" />
-					<input class="invisible" type="text" name="TableNumbersOfColumn" value="<?php echo $_POST['TableNumbersOfColumn'] ?>">
-					<input class="invisible" type="text" name="BaseName" value="<?php echo $_POST['BaseName'] ?>">
+			<div id="tableRowContainerView">
+
 			</div>
 		</div>
 		<div id="tableEdit">
@@ -38,10 +40,6 @@
 					<div class="newTableTitleElement">Индекс</div>
 					<div class="newTableTitleElement">A_I</div>
 					<div class="newTableTitleElement">Комментарии</div>
-
-					<input class="invisible" type="text" name="TableName" value="<?php echo $_POST['TableName'] ?>" />
-					<input class="invisible" type="text" name="TableNumbersOfColumn" value="<?php echo $_POST['TableNumbersOfColumn'] ?>">
-					<input class="invisible" type="text" name="BaseName" value="<?php echo $_POST['BaseName'] ?>">
 			</div>
 		</div>
 		<div id="tablePaste">

@@ -47,18 +47,40 @@
 	}
 	if(!is_null($action))
 	{
-		if($action=="View")
+		if($action=="GetColumnName")
 		{
-			$conn->select_db($baseName);
-			$sql = "SELECT * FROM $tableNameEdit";
+			//$conn->select_db($baseName);
+			$sql = "SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$tableNameEdit'";
 			
+			$rows = array();
 			if($result = $conn->query($sql))
 			{
-				echo json_encode($result->fetch_array());
+				while(($row = $result->fetch_array(MYSQLI_NUM))) {
+					$rows[] = $row;
+				}
+				echo json_encode($rows);
 			} 
 			else
 			{
-				echo "ошибочка action=".$action."\nbaseName=".$baseName."\ntableName=".$tableNameEdit;
+				echo "SQL=".$sql."\nОшибочка action=".$action."\nbaseName=".$baseName."\ntableName=".$tableNameEdit."\n".$conn->error;
+			}
+		}
+		if($action=="View")
+		{
+			$conn->select_db($baseName);
+			$sql = "SELECT * FROM `$tableNameEdit`";
+			
+			$rows = array();
+			if($result = $conn->query($sql))
+			{
+				while(($row = $result->fetch_array(MYSQLI_NUM))) {
+					$rows[] = $row;
+				}
+				echo json_encode($rows);
+			} 
+			else
+			{
+				echo "SQL=".$sql."\nОшибочка action=".$action."\nbaseName=".$baseName."\ntableName=".$tableNameEdit.$conn->error;
 			}
 		}
 		if($action=="Edit")
