@@ -14,9 +14,13 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
 	<script type="text/javascript" src="Scripts/mainScript.js"></script>
 	<script type="text/javascript" src="Scripts/dialogs.js"></script>
+	
 </head>
-<body>
-<div id="header"><a href="/"><div id="logo"><img src="Images/logo.png"><img src="Images/logo2.png"></div></a></div>
+<body>	
+<!--Шапка-->
+<div id="header"><a href="/"><div id="logo"><img src="Images/logo.png"><img src="Images/logo2.png"></div></a>
+</div>
+<!--Окно с выводом ошибки-->
 <div class="errorMessage">
 	<div class="errorMessageWindow">
 		<div class="errorTitle">Ошибка</div>

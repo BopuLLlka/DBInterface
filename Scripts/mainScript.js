@@ -169,14 +169,17 @@ $(document).ready(function ()
 			isEmpty=false;
 		}
 		$("#baseTable").append("<div class='baseRow'><p  class='text'>"+baseName+"</p><i class='fas fa-trash-alt deleteBtn'></i></div>");
+		//test("Добавляем элемент",function(){
+		//var baseTable = $("#baseTable");
+		//	baseTable.append("<div class='baseRow'><p  class='text'>"+baseName+"</p><i class='fas fa-trash-alt deleteBtn'></i></div>");
+		///	equal($("div",baseTable).length, 1,"Успешно добавлен");		
+		//});
 	}
 	//кнопка "Закрыть" в вспывающем окне с ошибкой
 	$(".closeBtn").click(function()
 	{
 		$(".errorMessage").css("display","none");
 	});
-
-	
 	
 	//Нажали кнопку "Создать"
 	$("#createBaseForm").submit(function(event){
@@ -210,7 +213,6 @@ $(document).ready(function ()
 		    }
 		});
 	});
-	
 });
 
 
