@@ -517,6 +517,32 @@ body{
 	justify-content: flex-end;
 	padding: 10px;
 }
+.editElementBtn
+{
+	font-size: 25px;
+	cursor: pointer;
+	width: 50px;
+	height: 20px;
+}
+.deleteElementBtn
+{
+	margin-left: 5px;
+	font-size: 25px;
+	cursor: pointer;
+	width: 50px;
+	height: 20px;
+	color: red;
+}
+
+.tableButtonBlock{
+	display: flex;
+
+}
+.notActive
+{
+	pointer-events: none;
+}
+
 
 /*Медиа выражения*/
 @media screen and (min-width: 800px)

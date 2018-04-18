@@ -1,8 +1,12 @@
+var tableName;
+var baseName;
+var tableInfoArray = new Array();
+
 $("#baseName").ready(function () {
-	var tableName = $("#tableNameEdit").val();
-	var baseName = $("#baseName").val();
+	tableName = $("#tableNameEdit").val();
+	baseName = $("#baseName").val();
 	
-	var tableInfoArray = new Array();
+	
 
 	GetTableInformation();
 
@@ -65,45 +69,13 @@ $("#baseName").ready(function () {
 			},
 			success(data)
 			{
-				drawViewTable(data);				
+				drawViewTable(data,tableInfoArray);				
 			},
 			error(data){
 				alert("УРА! но ошибка");
 			}
 		})
 	}
-	function drawViewTable(json)
-	{
-		var titleArray = new Array();
-
-		$.each(tableInfoArray,function (i,item) {
-			titleArray.push(item[3]);
-		});
-
-		var viewContainer = $("#tableRowContainerView");
-		viewContainer.html("");
-		viewContainer.css("grid-template-columns","repeat("+titleArray.length+",1fr)");
-		var array = $.parseJSON(json);
-		console.log(array);
-		$.each(titleArray,function(i,item)
-		{
-			viewContainer.append("<div class='tableViewTitle'>"+item+"</div>");
-		});
-		if(array.length==0)
-		{
-			viewContainer.append("<div id='emptyTableText'>Таблица пустая</div>");
-		}
-		$.each(array,function(i,row)
-		{
-			
-			$.each(row,function(j,item)
-			{
-				viewContainer.append("<div class='tableViewElement'>"+item+"</div>");
-			});
-
-		});
-	}
-
 	function EditTable()
 	{
 
@@ -111,8 +83,6 @@ $("#baseName").ready(function () {
 		$("#tableEdit").css("display","block");
 		$("#tablePaste").css("display","none");
 		drawEditTable();
-		
-		
 	}
 	function drawEditTable()
 	{
@@ -158,5 +128,77 @@ $("#baseName").ready(function () {
         });
         e.preventDefault(); 
     });
-
 });
+
+function drawViewTable(json,tableInfoArray)
+{
+	var titleArray = new Array();
+
+	$.each(tableInfoArray,function (i,item) {
+		titleArray.push(item[3]);
+	});
+
+	var viewContainer = $("#tableRowContainerView");
+	viewContainer.html("");
+	var repeatNumber = titleArray.length+1;
+	viewContainer.css("grid-template-columns","repeat("+repeatNumber+",1fr)");
+	var fieldsArray = $.parseJSON(json);
+
+	$.each(titleArray,function(i,item)
+	{
+		viewContainer.append("<div class='tableViewTitle'>"+item+"</div>");
+	});
+	viewContainer.append("<div class='tableViewTitle'>Действие</div>");
+	if(fieldsArray.length==0)
+	{
+		viewContainer.append("<div id='emptyTableText'>Таблица пустая</div>");
+	}
+	$.each(fieldsArray,function(i,row)
+	{
+	
+		$.each(row,function(j,item)
+		{
+			viewContainer.append("<input type='text' name='newValue"+i+"-"+j+"' id='input"+i+"-"+j+"' class='tableViewElement notActive' value='"+item+"'/>");
+		});
+	
+		viewContainer.append("<div class='tableViewElement tableButtonBlock' id='tableActionBlock"+i+"'><i class='far fa-edit editElementBtn' onClick='editFields("+i+","+JSON.stringify(row)+")'></i><i class='fas fa-times deleteElementBtn'></i></div>");
+	});
+}
+function editFields(i,row) {
+	var likeId = $("#input0-0").val();
+	$.each(row,function(index,item){
+		$("#input"+i+"-"+index).attr("class","tableViewElement");
+		$("#tableActionBlock"+i).html(" ");
+		$("#tableActionBlock"+i).append("<input class='myBtn' type='submit' onClick='saveChanges("+i+","+JSON.stringify(row)+","+likeId+")' value='Сохранить'/>")
+	});
+	console.log(row);
+}
+function saveChanges(i,row,likeId) {
+	var newValuesArray = new Array;
+	$.each(row,function(index,item){
+		newValuesArray.push($("#input"+i+"-"+index).val());
+	});
+	console.log(newValuesArray);
+	console.log(tableName);
+	console.log(tableInfoArray[i]);
+	console.log("likeId="+likeId);
+	$.ajax({
+		type:'post',
+		url: '/Controllers/tables.php',
+		data:
+		{
+			action: 'Update',
+			baseName: baseName,
+			tableNameEdit: tableName,
+			updateId:i,
+			likeId:likeId,
+			newValues:JSON.stringify(newValuesArray),
+			tableInfoArray:JSON.stringify(tableInfoArray[i])
+		},
+		success(data) {
+			console.log(data);
+		}
+	})
+}
+
+

@@ -6,12 +6,13 @@
 	<!--Стили-->
 	<link rel="shortcut icon" href="/Images/favicon.png" type="image/png">
 	<link href="https://fonts.googleapis.com/css?family=Roboto&amp;subset=cyrillic" rel="stylesheet">
-	<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+	
 	<link rel="stylesheet" type="text/css" href="/Styles/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/Styles/myStyles.css">
 	<!--Скрипты-->
 	<script type="text/javascript" src="/Scripts/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="/Scripts/editTable.js"></script>
+	<script type="text/javascript" src="/Scripts/fontawesome-all.js"></script>
 </head>
 <body>
 <div id="header"><a href="/"><div id="logo"><img src="/Images/logo.png"><img src="/Images/logo2.png"></div></a></div>

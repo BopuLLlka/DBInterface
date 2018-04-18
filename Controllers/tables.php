@@ -20,6 +20,11 @@
 	$baseName = $_POST['baseName'];
 	$tableNameEdit = $_POST['tableNameEdit'];
 
+	$newValues = $_POST['newValues'];
+	$tableInfoArray = $_POST['tableInfoArray'];
+	$updateId =$_POST['updateId'];
+	$likeId = $_POST['likeId'];
+
 	if(!is_null($method))
 	{
 		if(!is_null($dbName))
@@ -82,6 +87,41 @@
 			{
 				echo "SQL=".$sql."\nОшибочка action=".$action."\nbaseName=".$baseName."\ntableName=".$tableNameEdit.$conn->error;
 			}
+		}
+		if($action=="Update")
+		{
+			$conn->select_db($baseName);
+			$sql = "UPDATE `$tableNameEdit` SET "; 
+			$valuesArray = json_decode($newValues);
+			$infoArray = json_decode($tableInfoArray);
+
+			$i=0;
+			$isItem = true;
+			while ($isItem) {
+				if(!is_null($valuesArray[$i])){
+					if($i!=0)
+					{
+						$sql .=",";
+					}
+					$sql.= $infoArray[$i]."=".$valuesArray[$i]." ";
+					$i++;	
+				}
+				else{
+					$isItem = false;
+				}
+			}
+
+			$sql.= "WHERE $infoArray[0]=$likeId";	
+
+			if($result = $conn->query($sql))
+			{
+				echo json_encode($sql);
+			} 
+			else
+			{
+				echo json_encode("error".$sql);
+			}
+
 		}
 		if($action=="Edit")
 		{
